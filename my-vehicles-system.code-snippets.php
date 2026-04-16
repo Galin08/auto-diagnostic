@@ -3,9 +3,9 @@
 /**
  * My Vehicles System
  */
-// ===============================
+
 // ➕ WPForms → Добавяне на МПС
-// ===============================
+
 add_action('wpforms_process_complete', function($fields) {
 
     $user_id = get_current_user_id();
@@ -52,9 +52,8 @@ add_action('wpforms_process_complete', function($fields) {
 }, 10, 3);
 
 
-// ===============================
-// 🚗 МОИТЕ МПС (ХУБАВ ДИЗАЙН)
-// ===============================
+// 🚗 МОИТЕ МПС 
+
 add_shortcode('my_vehicles', function () {
 
     if (!is_user_logged_in()) {
@@ -100,9 +99,8 @@ add_shortcode('my_vehicles', function () {
 });
 
 
-// ===============================
 // ✅ ОДОБРЕНИЕ
-// ===============================
+
 function approve_user_vehicle($vehicle_id, $user_id) {
 
     $users = get_field('assigned_users', $vehicle_id) ?: [];
@@ -116,9 +114,8 @@ function approve_user_vehicle($vehicle_id, $user_id) {
 }
 
 
-// ===============================
-// 🛠️ АДМИН ПАНЕЛ (КРАСИВ)
-// ===============================
+// 🛠️ АДМИН ПАНЕЛ 
+
 add_action('admin_menu', function () {
     add_menu_page(
         'Заявки МПС',
@@ -189,9 +186,9 @@ function vehicle_requests_page() {
 }
 
 
-// ===============================
+
 // 📋 МЕНЮ
-// ===============================
+
 add_filter('wp_nav_menu_items', function ($items, $args) {
 
     // ако не е логнат → добавяме Вход, но НЕ трием менюто
@@ -233,9 +230,9 @@ add_filter('wp_nav_menu_items', function ($items, $args) {
 
     wp_reset_postdata();
 
-    // =========================
+
     // 📋 ПРОФИЛ DROPDOWN
-    // =========================
+
     $items .= '<li class="menu-item menu-item-has-children">';
     $items .= '<a href="#">Профил</a>';
     $items .= '<ul class="sub-menu">';
@@ -245,9 +242,9 @@ add_filter('wp_nav_menu_items', function ($items, $args) {
 
 
 
-// ===============================
-// 🎨 ДИЗАЙН (МНОГО ВАЖНО)
-// ===============================
+
+// 🎨 ДИЗАЙН 
+
 add_action('wp_head', function () {
 ?>
 <style>
